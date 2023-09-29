@@ -7,6 +7,7 @@ import CardContent from '@mui/material/CardContent';
 import CardHeader from '@mui/material/CardHeader';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
+import { Chip } from '@mui/material';
 const Task =(props)=>{
     return(  <Grid
         item
@@ -48,6 +49,9 @@ const Task =(props)=>{
             >
                 {props.description}
             </Typography>
+            <Box sx={{textAlign:"center"}}>
+                <Chip variant='contained'color={props.priority=="Low"?"success":props.priority=="Medium"?"warning":"error"} label={props.priority}></Chip>
+            </Box>
         </CardContent>
         <CardActions sx={{justifyContent: 'space-between', padding: '20px'}}>
               <Button variant="contained" size="small" color="success" onClick={props.markDone}>
